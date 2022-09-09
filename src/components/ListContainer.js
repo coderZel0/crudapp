@@ -1,41 +1,42 @@
 import React from 'react'
-import User from './User'
+import UserRow from './User'
+import './listcontainer.css'
 
-const ListContainer = () => {
+const ListContainer = ({data}) => {
   return (
     <div className='container mx-auto mt-32 p-6 px-8 py-8 list_container'>
-        <div className='new_user  py-3 px-6 absolute -mt-16 text-blue-600 border-2 border-primary'>New user</div>
+        <div className='new_user py-2 px-3 absolute mx-16 -mt-16 text-blue-600 border-2 border-primary'>
+          New user
+          <i className="fas fa-user-plus mx-2"></i>
+          </div>
         <div className='container_head  mx-auto p-5'>
-            <div className='w-100 cols bg-bluePrimary p-4'>
-              <ul className='flex space-x-6 justify-around'>
-                <li >Username</li>
-                <li>Email</li>
-                <li>Gender</li>
-                <li>Status</li>
-                <li>Action</li>
-              </ul>
-            </div>
-            <div className='p-2 px-0 bg-red-300 flex flex-col space-y-6 justify-around mt-10'>
-                <div className='user text-sm flex justify-around p-5 bg-blue-400'>
-                  <div className='name'>Username</div>
-                  <div className='email'>Email@gmail.com</div>
-                  <div className='gender'>Male</div>
-                  <div className='status'>Active</div>
-                  <div className='actions'>
-                    actions
-                  </div>
-                </div>
-              
-                <div className='user text-sm flex justify-around p-5 bg-blue-400'>
-                  <div className='name'>Username</div>
-                  <div className='email'>Email@gmail.com</div>
-                  <div className='gender'>Male</div>
-                  <div className='status'>Active</div>
-                  <div className='actions'>
-                    actions
-                  </div>
-                </div>
-            </div>
+            <table className='mx-auto'>
+              <tr className='p-6 bg-bluePrimary'>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+
+              <tr className='user'>
+                <td>1</td>
+                <td>username</td>
+                <td>useremail@gmail.com</td>
+                <td>Male</td>
+                <td>Active</td>
+                <td className='flex justify-center space-x-3'>
+                  <a className='p-3 px-4 cursor-pointer bg-primary rounded-sm text-center'>
+                    <i class="fas fa-pencil-alt"></i>
+                  </a>
+                  <a className='p-3 px-4 cursor-pointer bg-lightRed rounded-sm text-center'>
+                    <i className="fas fa-trash-alt"></i>
+                  </a>
+                </td>
+              </tr>
+              <UserRow/>
+            </table>
         </div>
     </div>
   )

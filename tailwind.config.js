@@ -12,7 +12,8 @@ module.exports = {
       },
       colors:{
         primary:"rgb(48, 241, 145)",
-        bluePrimary:"rgb(41, 78, 245)"
+        bluePrimary:"rgb(41, 78, 245)",
+        lightRed:"rgb(243, 121, 65)"
       }
     },
     
