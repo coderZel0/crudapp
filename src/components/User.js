@@ -1,23 +1,32 @@
 import React from 'react'
 
-const UserRow = ({username,id,gender,status}) => {
-  return (
-    <tr className='user'>
-    <td>1</td>
-    <td>username</td>
-    <td>useremail@gmail.com</td>
-    <td>Male</td>
-    <td>Active</td>
-    <td className='flex justify-center space-x-3'>
-      <a className='p-3 px-4 cursor-pointer bg-primary rounded-sm text-center'>
-        <i class="fas fa-pencil-alt"></i>
-      </a>
-      <a className='p-3 px-4 cursor-pointer bg-lightRed rounded-sm text-center'>
-        <i className="fas fa-trash-alt"></i>
-      </a>
-    </td>
-  </tr>
-  )
+const UserRow = ({data,setUsers}) => {
+  
+  const deleteUser = (id)=>{
+    setUsers((users)=>users.filter((user)=>user.id !==id));
+  }
+  //const {id,email,username,gender,status} = data;
+  //console.log(data.username)
+  console.log(data)
+  return <>
+    {data && 
+      (<tr className='user'>  
+        <td>{data.id}</td>
+        <td>{data.username}</td>
+        <td>{data.email}</td>
+        <td className="capitalize">{data.gender}</td>
+        <td className="capitalize">{data.status}</td>
+        <td className='flex justify-center space-x-3'>
+          <a className='p-3 px-4 cursor-pointer bg-primary rounded-sm text-center'>
+            <i className="fas fa-pencil-alt"></i>
+          </a>
+          <a onClick={()=>deleteUser(data.id)} className='p-3 px-4 cursor-pointer bg-lightRed rounded-sm text-center'>
+            <i className="fas fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>)
+    }
+  </>
 }
 
 export default UserRow
