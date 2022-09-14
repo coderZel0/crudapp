@@ -3,7 +3,7 @@ import '../styles/header.css';
 
 const Header = () => {
   return (
-    <div className='header'>User management system</div>
+    <div className='header font-bold text-gray-900'>User management system</div>
   )
 }
 
